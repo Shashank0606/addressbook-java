@@ -1,7 +1,7 @@
 package com.bridgelabz.addressbook;
 
 public class ContactPerson {
-    private String firstName, lastName, email;
+	private String firstName, lastName, email;
     private long phoneNumber;
     private Address address;
 
@@ -47,8 +47,7 @@ public class ContactPerson {
 
     public String toString() {
 
-        return "Person Details:\nFirst Name - " + firstName + "\nLast Name - " + lastName + "\nPhone Number - "
-                + phoneNumber + "\nEmail - " + email + "\nAddress - " + address;
+        return "Person Details:\nFirst Name - "+firstName+"\nLast Name - "+lastName+"\nPhone Number - "+phoneNumber+"\nEmail - "+email+"\nAddress - "+address;
 
     }
 }
