@@ -1,7 +1,7 @@
 package com.bridgelabz.addressbook;
 
 public class Address {
-	private String city, state;
+    private String city, state;
     private long zip;
 
     public String getCity() {
@@ -30,7 +30,7 @@ public class Address {
 
     public String toString() {
 
-        return "\nCity - "+city+"\nState - "+state+"\nZip Code - "+zip;
+        return "\nCity - " + city + "\nState - " + state + "\nZip Code - " + zip;
     }
 
 }
