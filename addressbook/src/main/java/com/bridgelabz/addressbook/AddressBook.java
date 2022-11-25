@@ -6,38 +6,39 @@ import java.util.Scanner;
 
 public class AddressBook implements AddressBookIF {
 
-    Scanner scannerObject = new Scanner(System.in);
-    ArrayList<ContactPerson> contactList = new ArrayList<ContactPerson>();
+    static Scanner scannerObject = new Scanner(System.in);
+    static ArrayList<ContactPerson> contactList = new ArrayList<ContactPerson>();
 
-    public void operation() {
+    public static void main(String[] args) {
+        {
+            boolean moreChanges = true;
+            do {
 
-        boolean moreChanges = true;
-        do {
+                System.out.println("\nChoose the operation you want to perform");
+                System.out.println(
+                        "1.Add To Address Book\n2.Edit Existing Entry\n3.Display Address book\n4.Exit Address book System");
 
-            System.out.println("\nChoose the operation you want to perform");
-            System.out.println(
-                    "1.Add To Address Book\n2.Edit Existing Entry\n3.Display Address book\n4.Exit Address book System");
+                switch (scannerObject.nextInt()) {
+                    case 1:
+                        addContact();
+                        break;
+                    case 2:
+                        editPerson();
+                        break;
+                    case 3:
+                        displayContents();
+                        break;
+                    case 4:
+                        moreChanges = false;
+                        System.out.println("BYE !");
 
-            switch (scannerObject.nextInt()) {
-                case 1:
-                    addContact();
-                    break;
-                case 2:
-                    editPerson();
-                    break;
-                case 3:
-                    displayContents();
-                    break;
-                case 4:
-                    moreChanges = false;
-                    System.out.println("BYE !");
+                }
 
-            }
-
-        } while (moreChanges);
+            } while (moreChanges);
+        }
     }
 
-    public void addContact() {
+    public static void addContact() {
         ContactPerson person = new ContactPerson();
         Address address = new Address();
 
@@ -74,7 +75,7 @@ public class AddressBook implements AddressBookIF {
 
     }
 
-    public void editPerson() {
+    public static void editPerson() {
 
         System.out.println("Enter the first name:");
         String firstName = scannerObject.next();
@@ -87,7 +88,7 @@ public class AddressBook implements AddressBookIF {
             if (firstName.equals(person.getFirstName())) {
 
                 Address address = person.getAddress();
-                System.out.println("Choose the attribute you want to change:");
+                System.out.println("\nChoose the attribute you want to change:");
                 System.out.println("1.Last Name\n2.Phone Number\n3.Email\n4.City\n5.State\n6.ZipCode");
                 int choice = scannerObject.nextInt();
 
@@ -98,7 +99,7 @@ public class AddressBook implements AddressBookIF {
                         person.setLastName(lastName);
                         break;
                     case 2:
-                        System.out.println("Enter correct Phone Number :");
+                        System.out.println("Entercorrect Phone Number :");
                         long phoneNumber = scannerObject.nextLong();
                         person.setPhoneNumber(phoneNumber);
                         break;
@@ -129,12 +130,24 @@ public class AddressBook implements AddressBookIF {
 
     }
 
-    public void displayContents() {
+    public static void displayContents() {
 
         Iterator<ContactPerson> iterator = contactList.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
+    }
+
+    @Override
+    public void operation() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void deletePerson() {
+        // TODO Auto-generated method stub
 
     }
 }
