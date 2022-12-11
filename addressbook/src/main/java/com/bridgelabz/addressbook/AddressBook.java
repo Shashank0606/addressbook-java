@@ -182,7 +182,6 @@ public class AddressBook implements AddressBookIF {
         System.out.println("----- Contents of the Address Book : "+addressBookName+" -----");
         for(int index=0; index < numberOfEntries ; index++) {
             System.out.println(contactList[index]);
-
         
 
     }
